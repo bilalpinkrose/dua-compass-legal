@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hesap ve Veri Silme — Dua Compass</title>
+<style>
+  :root { --canvas:#FAF7F2; --ink:#1B2A4E; --gold:#B8935A; --mist:#5A6A85; --border:#E8E2D6; --danger:#A04444; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:var(--canvas); color:var(--ink); font-family:-apple-system,'Segoe UI',Roboto,Arial,sans-serif; line-height:1.65; }
+  .wrap { max-width:680px; margin:0 auto; padding:48px 20px 64px; }
+  h1 { font-family:Georgia,'Times New Roman',serif; font-size:28px; margin-bottom:6px; }
+  h2 { font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:var(--gold); margin:30px 0 8px; }
+  p, li { font-size:15px; }
+  ul { padding-left:22px; margin:6px 0; }
+  .sub { color:var(--mist); font-size:13px; }
+  .divider { border:none; border-top:1px solid rgba(184,147,90,0.35); margin:18px 0 6px; }
+  a { color:var(--gold); }
+  .back { display:inline-block; margin-bottom:20px; color:var(--mist); text-decoration:none; font-size:13px; }
+  .card { background:#fff; border:1px solid var(--border); border-radius:12px; padding:20px; margin-top:12px; }
+  label { display:block; font-size:13px; color:var(--mist); margin:12px 0 4px; }
+  input[type=email], input[type=password] { width:100%; padding:12px 14px; font-size:15px; border:1px solid var(--border); border-radius:10px; background:#fff; color:var(--ink); }
+  input:focus { outline:2px solid rgba(184,147,90,0.4); }
+  .check { display:flex; gap:10px; align-items:flex-start; margin:16px 0; font-size:14px; }
+  .check input { margin-top:4px; }
+  button { width:100%; padding:14px; font-size:15px; font-weight:600; color:#fff; background:var(--danger); border:none; border-radius:10px; cursor:pointer; }
+  button:disabled { opacity:0.5; cursor:not-allowed; }
+  .msg { margin-top:14px; padding:12px 14px; border-radius:10px; font-size:14px; display:none; }
+  .msg.error { display:block; background:rgba(160,68,68,0.08); border:1px solid rgba(160,68,68,0.3); color:var(--danger); }
+  .msg.success { display:block; background:rgba(184,147,90,0.08); border:1px solid rgba(184,147,90,0.4); color:var(--ink); }
+  .note { font-size:13px; color:var(--mist); margin-top:14px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="index.html">← Dua Compass Yasal Bilgiler</a>
+  <h1>Hesap ve Veri Silme</h1>
+  <p class="sub">Dua Compass hesabınızı kalıcı olarak silme ve veri silme talepleri</p>
+  <hr class="divider">
+
+  <h2>Neler Silinir?</h2>
+  <p>Hesabınızı sildiğinizde aşağıdaki veriler sunucularımızdan <strong>kalıcı olarak ve geri alınamaz şekilde</strong> silinir:</p>
+  <ul>
+    <li>Hesabınız (e-posta ve giriş bilgileri)</li>
+    <li>Profil ve hesap tercihleriniz</li>
+    <li>Hesaba bağlı favori ve okuma kayıtları</li>
+    <li>Yapay zekâ kullanım kayıtları</li>
+    <li>Abonelik/erişim hakkı kayıtları</li>
+  </ul>
+  <p>Gönderdiğiniz geri bildirimler kimliğinizden ayrıştırılarak anonim hâle getirilir.
+  Cihazınızdaki yerel veriler (favoriler, zikirmatik, tercihler) sunucuda tutulmadığı için bu işlemden
+  etkilenmez; uygulamayı sildiğinizde cihazınızdan silinir. App Store veya Google Play üzerinden aldığınız
+  bir abonelik varsa mağaza hesabınızdan ayrıca iptal etmeniz gerekir.</p>
+
+  <h2>Yöntem 1 — Uygulama İçinden</h2>
+  <p>Ayarlar → Hesap → <strong>Hesabı Sil</strong> adımlarını izleyin. Onay verdiğinizde hesabınız anında silinir.</p>
+
+  <h2>Yöntem 2 — Bu Sayfadan</h2>
+  <p>Uygulamayı kaldırdıysanız hesabınızı buradan silebilirsiniz. E-posta ve şifrenizle kimliğinizi doğrulayın:</p>
+
+  <div class="card">
+    <form id="deleteForm">
+      <label for="email">E-posta</label>
+      <input type="email" id="email" autocomplete="email" required placeholder="ornek@mail.com">
+      <label for="password">Şifre</label>
+      <input type="password" id="password" autocomplete="current-password" required placeholder="Hesap şifreniz">
+      <div class="check">
+        <input type="checkbox" id="confirm" required>
+        <label for="confirm" style="margin:0; color:var(--ink); font-size:14px;">Hesabımın ve hesabıma bağlı tüm sunucu verilerinin kalıcı olarak silineceğini, bu işlemin geri alınamayacağını anlıyorum.</label>
+      </div>
+      <button type="submit" id="submitBtn">Hesabımı Kalıcı Olarak Sil</button>
+    </form>
+    <div class="msg" id="msg"></div>
+    <p class="note">Şifrenizi hatırlamıyorsanız uygulamadaki "Şifremi Unuttum" adımını kullanın veya aşağıdaki
+    e-posta adresinden silme talebi iletin.</p>
+  </div>
+
+  <h2 id="veri-silme">Hesabı Silmeden Veri Silme Talebi</h2>
+  <p>Hesabınızın tamamını silmeden belirli verilerinizin (ör. yapay zekâ kullanım kayıtları, geri bildirimler)
+  silinmesini istiyorsanız, hesabınıza kayıtlı e-posta adresinizden
+  <a href="mailto:bbilal60@gmail.com?subject=Dua%20Compass%20Veri%20Silme%20Talebi">bbilal60@gmail.com</a>
+  adresine talebinizi yazın. Talepler en geç 30 gün içinde sonuçlandırılır ve size bilgi verilir.</p>
+
+  <h2>İletişim</h2>
+  <p>Silme işlemiyle ilgili her türlü soru için: <a href="mailto:bbilal60@gmail.com">bbilal60@gmail.com</a></p>
+</div>
+
+<script>
+(function () {
+  var SUPABASE_URL = 'https://pzufijdlwcvqrkoaptno.supabase.co';
+  var ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB6dWZpamRsd2N2cXJrb2FwdG5vIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzc4NDExMjAsImV4cCI6MjA5MzQxNzEyMH0.CMo_Dqb7mKsgGUdMjhLos8UrheBSX3KHtpGmyPewAJo';
+
+  var form = document.getElementById('deleteForm');
+  var btn = document.getElementById('submitBtn');
+  var msg = document.getElementById('msg');
+
+  function show(kind, text) {
+    msg.className = 'msg ' + kind;
+    msg.textContent = text;
+  }
+
+  function mapAuthError(status, data) {
+    var code = (data && (data.error_code || data.error)) || '';
+    var text = ((data && (data.msg || data.error_description)) || '').toLowerCase();
+    if (code === 'invalid_credentials' || text.indexOf('invalid login credentials') !== -1) {
+      return 'E-posta veya şifre hatalı.';
+    }
+    if (code === 'email_not_confirmed' || text.indexOf('email not confirmed') !== -1) {
+      return 'Bu hesabın e-postası henüz doğrulanmamış. Uygulamadan doğrulamayı tamamlayın veya e-posta ile silme talebi iletin.';
+    }
+    if (status === 429 || text.indexOf('rate limit') !== -1 || text.indexOf('too many') !== -1) {
+      return 'Çok fazla deneme yapıldı. Birkaç dakika sonra tekrar deneyin.';
+    }
+    return 'Giriş yapılamadı. Bilgilerinizi kontrol edip tekrar deneyin.';
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var email = document.getElementById('email').value.trim().toLowerCase();
+    var password = document.getElementById('password').value;
+
+    if (!window.confirm('Hesabınız ve sunucudaki tüm verileriniz kalıcı olarak silinecek. Bu işlem geri alınamaz. Devam edilsin mi?')) {
+      return;
+    }
+
+    btn.disabled = true;
+    btn.textContent = 'Siliniyor…';
+    msg.className = 'msg';
+
+    fetch(SUPABASE_URL + '/auth/v1/token?grant_type=password', {
+      method: 'POST',
+      headers: { apikey: ANON_KEY, 'content-type': 'application/json' },
+      body: JSON.stringify({ email: email, password: password }),
+    })
+      .then(function (res) {
+        return res.json().then(function (data) { return { res: res, data: data }; });
+      })
+      .then(function (auth) {
+        if (!auth.res.ok || !auth.data.access_token) {
+          throw new Error(mapAuthError(auth.res.status, auth.data));
+        }
+        return fetch(SUPABASE_URL + '/functions/v1/delete-account', {
+          method: 'POST',
+          headers: {
+            apikey: ANON_KEY,
+            authorization: 'Bearer ' + auth.data.access_token,
+            'content-type': 'application/json',
+          },
+          body: '{}',
+        });
+      })
+      .then(function (res) {
+        return res.json().then(function (data) { return { res: res, data: data }; });
+      })
+      .then(function (out) {
+        if (!out.res.ok || !out.data.ok) {
+          throw new Error('Hesap silinemedi. Lütfen tekrar deneyin veya e-posta ile talep iletin.');
+        }
+        form.style.display = 'none';
+        show('success', 'Hesabınız ve sunucudaki verileriniz kalıcı olarak silindi. Dua Compass’ı kullandığınız için teşekkür ederiz.');
+      })
+      .catch(function (err) {
+        show('error', err && err.message ? err.message : 'Beklenmeyen bir hata oluştu. Lütfen tekrar deneyin.');
+      })
+      .finally(function () {
+        btn.disabled = false;
+        btn.textContent = 'Hesabımı Kalıcı Olarak Sil';
+      });
+  });
+})();
+</script>
+</body>
+</html>
