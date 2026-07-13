@@ -3,36 +3,104 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Dua Compass yasal bilgiler: gizlilik politikası, hesap ve veri silme.">
 <title>Dua Compass — Yasal Bilgiler</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='none' stroke='%23B8935A' stroke-width='1.6'%3E%3Crect x='6' y='6' width='12' height='12'/%3E%3Crect x='6' y='6' width='12' height='12' transform='rotate(45 12 12)'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Literata:wght@400;600&display=swap" rel="stylesheet">
 <style>
-  :root { --canvas:#FAF7F2; --ink:#1B2A4E; --gold:#B8935A; --mist:#5A6A85; --border:#E8E2D6; }
+  :root {
+    --canvas:#FAF7F2; --ink:#1B2A4E; --gold:#B8935A; --mist:#5A6A85;
+    --border:#E8E2D6; --card:#FFFFFF; --gold-tint:rgba(184,147,90,0.06);
+  }
   * { margin:0; padding:0; box-sizing:border-box; }
-  body { background:var(--canvas); color:var(--ink); font-family:-apple-system,'Segoe UI',Roboto,Arial,sans-serif; line-height:1.6; }
-  .wrap { max-width:640px; margin:0 auto; padding:48px 20px 64px; }
-  h1 { font-family:Georgia,'Times New Roman',serif; font-size:30px; margin-bottom:6px; }
-  .sub { color:var(--mist); font-size:14px; margin-bottom:28px; }
-  .divider { border:none; border-top:1px solid rgba(184,147,90,0.35); margin:20px 0 28px; }
-  a.card { display:block; background:#fff; border:1px solid var(--border); border-radius:12px; padding:18px 20px; margin-bottom:14px; text-decoration:none; color:var(--ink); }
+  html { -webkit-text-size-adjust:100%; }
+  body {
+    background:var(--canvas); color:var(--ink);
+    font-family:'Inter',-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
+    font-size:15.5px; line-height:1.7;
+  }
+  .wrap { max-width:680px; margin:0 auto; padding:clamp(32px,6vw,56px) 20px 48px; }
+  .brand { display:flex; align-items:center; gap:10px; margin-bottom:clamp(36px,7vw,56px); }
+  .brand svg { width:20px; height:20px; flex:none; }
+  .brand span {
+    font-size:12px; font-weight:600; letter-spacing:0.14em;
+    text-transform:uppercase; color:var(--gold);
+  }
+  h1 {
+    font-family:'Literata',Georgia,'Times New Roman',serif; font-weight:600;
+    font-size:clamp(28px,5.5vw,34px); line-height:1.25; margin-bottom:10px;
+  }
+  .lede { color:var(--mist); font-size:15px; max-width:46ch; }
+  .ornament { display:flex; align-items:center; gap:12px; margin:26px 0 34px; }
+  .ornament .line { flex:1; height:1px; background:rgba(184,147,90,0.35); }
+  .ornament .diamond {
+    width:7px; height:7px; flex:none; transform:rotate(45deg);
+    border:1px solid var(--gold); background:var(--canvas);
+  }
+  a.card {
+    display:block; background:var(--card); border:1px solid var(--border);
+    border-radius:12px; padding:22px 24px; margin-bottom:14px;
+    text-decoration:none; color:var(--ink);
+    transition:border-color 140ms ease;
+  }
   a.card:hover { border-color:var(--gold); }
-  a.card strong { display:block; font-size:16px; margin-bottom:4px; }
-  a.card span { color:var(--mist); font-size:13px; }
-  footer { margin-top:36px; color:var(--mist); font-size:12px; }
+  a.card:focus-visible { outline:2px solid var(--gold); outline-offset:2px; }
+  a.card .eyebrow {
+    display:block; font-size:11px; font-weight:600; letter-spacing:0.12em;
+    text-transform:uppercase; color:var(--gold); margin-bottom:6px;
+  }
+  a.card strong {
+    display:block; font-family:'Literata',Georgia,serif; font-weight:600;
+    font-size:18px; margin-bottom:6px;
+  }
+  a.card span.desc { color:var(--mist); font-size:14px; }
+  footer {
+    margin-top:56px; padding-top:20px; border-top:1px solid var(--border);
+    color:var(--mist); font-size:13px; display:flex; flex-wrap:wrap; gap:6px 18px;
+  }
+  footer a { color:var(--gold); text-decoration:none; }
+  footer a:hover { text-decoration:underline; }
+  footer a:focus-visible { outline:2px solid var(--gold); outline-offset:2px; }
+  @media (prefers-reduced-motion:reduce) { a.card { transition:none; } }
 </style>
 </head>
 <body>
 <div class="wrap">
-  <h1>Dua Compass</h1>
-  <p class="sub">Yasal bilgiler ve veri talepleri</p>
-  <hr class="divider">
+  <header class="brand">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <g fill="none" stroke="#B8935A" stroke-width="1.6">
+        <rect x="6" y="6" width="12" height="12"/>
+        <rect x="6" y="6" width="12" height="12" transform="rotate(45 12 12)"/>
+      </g>
+    </svg>
+    <span>Dua Compass</span>
+  </header>
+
+  <h1>Yasal Bilgiler</h1>
+  <p class="lede">Verilerinizi nasıl işlediğimiz ve hesabınız üzerindeki haklarınız — açık, sade Türkçeyle.</p>
+
+  <div class="ornament" aria-hidden="true"><span class="line"></span><span class="diamond"></span><span class="line"></span></div>
+
   <a class="card" href="gizlilik.html">
+    <span class="eyebrow">Politika</span>
     <strong>Gizlilik Politikası</strong>
-    <span>Hangi verileri işliyoruz, nerede saklanıyor, haklarınız neler (çerez politikası dahil)</span>
+    <span class="desc">Hangi veriler işlenir, nerede saklanır, çerez kullanımı ve KVKK / GDPR kapsamındaki haklarınız.</span>
   </a>
+
   <a class="card" href="hesap-silme.html">
+    <span class="eyebrow">Veri talebi</span>
     <strong>Hesap ve Veri Silme</strong>
-    <span>Hesabınızı buradan kalıcı olarak silebilir veya veri silme talebi iletebilirsiniz</span>
+    <span class="desc">Hesabınızı bu sayfadan kalıcı olarak silin veya hesabınızı silmeden veri silme talebi iletin.</span>
   </a>
-  <footer>Dua Compass — Türkiye için dua ve ibadet uygulaması</footer>
+
+  <footer>
+    <span>Dua Compass</span>
+    <a href="gizlilik.html">Gizlilik Politikası</a>
+    <a href="hesap-silme.html">Hesap ve Veri Silme</a>
+    <a href="mailto:bbilal60@gmail.com">İletişim</a>
+  </footer>
 </div>
 </body>
 </html>

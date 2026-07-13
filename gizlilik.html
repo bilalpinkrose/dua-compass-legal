@@ -3,51 +3,111 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Dua Compass gizlilik politikası: hangi veriler işlenir, nerede saklanır, çerez kullanımı ve KVKK / GDPR haklarınız.">
 <title>Gizlilik Politikası — Dua Compass</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='none' stroke='%23B8935A' stroke-width='1.6'%3E%3Crect x='6' y='6' width='12' height='12'/%3E%3Crect x='6' y='6' width='12' height='12' transform='rotate(45 12 12)'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Literata:wght@400;600&display=swap" rel="stylesheet">
 <style>
-  :root { --canvas:#FAF7F2; --ink:#1B2A4E; --gold:#B8935A; --mist:#5A6A85; --border:#E8E2D6; }
+  :root {
+    --canvas:#FAF7F2; --ink:#1B2A4E; --gold:#B8935A; --mist:#5A6A85;
+    --border:#E8E2D6; --card:#FFFFFF; --gold-tint:rgba(184,147,90,0.06);
+  }
   * { margin:0; padding:0; box-sizing:border-box; }
-  body { background:var(--canvas); color:var(--ink); font-family:-apple-system,'Segoe UI',Roboto,Arial,sans-serif; line-height:1.65; }
-  .wrap { max-width:680px; margin:0 auto; padding:48px 20px 64px; }
-  h1 { font-family:Georgia,'Times New Roman',serif; font-size:28px; margin-bottom:6px; }
-  h2 { font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:var(--gold); margin:30px 0 8px; }
-  p, li { font-size:15px; }
-  ul { padding-left:22px; margin:6px 0; }
-  .sub { color:var(--mist); font-size:13px; }
-  .divider { border:none; border-top:1px solid rgba(184,147,90,0.35); margin:18px 0 6px; }
+  html { -webkit-text-size-adjust:100%; scroll-behavior:smooth; }
+  body {
+    background:var(--canvas); color:var(--ink);
+    font-family:'Inter',-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
+    font-size:15.5px; line-height:1.7;
+  }
+  .wrap { max-width:680px; margin:0 auto; padding:clamp(32px,6vw,56px) 20px 48px; }
+  .brand {
+    display:flex; align-items:center; gap:10px; margin-bottom:clamp(36px,7vw,56px);
+    text-decoration:none;
+  }
+  .brand svg { width:20px; height:20px; flex:none; }
+  .brand span {
+    font-size:12px; font-weight:600; letter-spacing:0.14em;
+    text-transform:uppercase; color:var(--gold);
+  }
+  .brand:focus-visible { outline:2px solid var(--gold); outline-offset:4px; }
+  h1 {
+    font-family:'Literata',Georgia,'Times New Roman',serif; font-weight:600;
+    font-size:clamp(28px,5.5vw,34px); line-height:1.25; margin-bottom:10px;
+  }
+  .meta { color:var(--mist); font-size:13.5px; }
+  .ornament { display:flex; align-items:center; gap:12px; margin:26px 0 8px; }
+  .ornament .line { flex:1; height:1px; background:rgba(184,147,90,0.35); }
+  .ornament .diamond {
+    width:7px; height:7px; flex:none; transform:rotate(45deg);
+    border:1px solid var(--gold); background:var(--canvas);
+  }
+  h2 {
+    font-size:12px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase;
+    color:var(--gold); margin:36px 0 10px;
+  }
+  p { margin-bottom:12px; }
+  p:last-child { margin-bottom:0; }
+  ul { padding-left:22px; margin:0 0 12px; }
+  li { margin-bottom:6px; }
+  em { font-style:italic; }
   a { color:var(--gold); }
-  .back { display:inline-block; margin-bottom:20px; color:var(--mist); text-decoration:none; font-size:13px; }
+  a:focus-visible { outline:2px solid var(--gold); outline-offset:2px; }
+  .callout {
+    background:var(--card); border:1px solid var(--border); border-radius:12px;
+    padding:16px 20px; margin:14px 0;
+  }
+  .callout p { margin:0; font-size:14.5px; }
+  footer {
+    margin-top:56px; padding-top:20px; border-top:1px solid var(--border);
+    color:var(--mist); font-size:13px; display:flex; flex-wrap:wrap; gap:6px 18px;
+  }
+  footer a { text-decoration:none; }
+  footer a:hover { text-decoration:underline; }
 </style>
 </head>
 <body>
 <div class="wrap">
-  <a class="back" href="index.html">← Dua Compass Yasal Bilgiler</a>
+  <a class="brand" href="index.html">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <g fill="none" stroke="#B8935A" stroke-width="1.6">
+        <rect x="6" y="6" width="12" height="12"/>
+        <rect x="6" y="6" width="12" height="12" transform="rotate(45 12 12)"/>
+      </g>
+    </svg>
+    <span>Dua Compass</span>
+  </a>
+
   <h1>Gizlilik Politikası</h1>
-  <p class="sub">Son güncelleme: 13 Temmuz 2026</p>
-  <hr class="divider">
+  <p class="meta">Son güncelleme: 13 Temmuz 2026</p>
 
-  <h2>Genel Yaklaşım</h2>
-  <p>Dua Compass, hesap oluşturmadan kullanılabilir. Dua içerikleri, kategoriler, favoriler, zikirmatik ve
-  hatırlatmalar için hesap gerekmez. Hesap yalnızca yapay zekâ destekli özellikleri (dua önerisi ve soru-cevap)
-  kullanmak isterseniz gereklidir.</p>
+  <div class="ornament" aria-hidden="true"><span class="line"></span><span class="diamond"></span><span class="line"></span></div>
 
-  <h2>Hesap Oluşturursanız İşlenen Veriler</h2>
+  <h2>Genel yaklaşım</h2>
+  <p>Dua Compass, hesap oluşturmadan kullanılabilir. Dua içerikleri, kategoriler, favoriler, zikirmatik,
+  namaz vakitleri ve hatırlatmalar için hesap gerekmez. Hesap yalnızca yapay zekâ destekli özellikleri
+  (dua önerisi ve soru-cevap) kullanmak isterseniz gereklidir.</p>
+
+  <h2>Hesap oluşturursanız işlenen veriler</h2>
   <ul>
-    <li>E-posta adresiniz ve şifreniz (şifre yalnızca geri döndürülemez karma/hash olarak saklanır)</li>
-    <li>Hesap tercihleriniz ve varsa abonelik/erişim hakkı kayıtları</li>
-    <li>Yapay zekâ kullanım kayıtları: gönderdiğiniz metnin <em>kendisi değil</em>, yalnızca karma değeri (hash),
+    <li>E-posta adresiniz ve şifreniz — şifre yalnızca geri döndürülemez karma (hash) olarak saklanır</li>
+    <li>Hesap tercihleriniz ve varsa abonelik / erişim hakkı kayıtları</li>
+    <li>Yapay zekâ kullanım kayıtları — gönderdiğiniz metnin <em>kendisi değil</em>; yalnızca karma değeri,
     uzunluğu, tarihi ve kullanım sayacı</li>
   </ul>
-  <p>Bu veriler, KVKK ve GDPR kapsamında Avrupa Birliği'nde (Frankfurt, Almanya) bulunan sunucularda
-  (Supabase altyapısı) saklanır.</p>
+  <div class="callout">
+    <p>Bu veriler, KVKK ve GDPR kapsamında Avrupa Birliği'nde (Frankfurt, Almanya) bulunan sunucularda
+    (Supabase altyapısı) saklanır.</p>
+  </div>
 
-  <h2>Yapay Zekâ Özellikleri</h2>
+  <h2>Yapay zekâ özellikleri</h2>
   <p>"Dua Ara" veya "Soru Sor" ekranlarında yazdığınız metin, size uygun yanıtı üretebilmek için sunucumuz
-  üzerinden yapay zekâ hizmet sağlayıcısına iletilir. Metin, sunucularımızda saklanmaz; yalnızca yukarıda
-  belirtilen özet meta veriler (karma değer, uzunluk, tarih) kayıt altına alınır. Verileriniz yapay zekâ
-  modellerinin eğitiminde kullanılmaz ve reklam amaçlı üçüncü taraflarla paylaşılmaz.</p>
+  üzerinden yapay zekâ hizmet sağlayıcısına iletilir. Metin sunucularımızda saklanmaz; yalnızca yukarıda
+  belirtilen özet meta veriler kayıt altına alınır. Verileriniz yapay zekâ modellerinin eğitiminde
+  kullanılmaz ve reklam amaçlı üçüncü taraflarla paylaşılmaz.</p>
 
-  <h2>Yalnızca Cihazınızda Kalan Veriler</h2>
+  <h2>Yalnızca cihazınızda kalan veriler</h2>
   <ul>
     <li>Favori dualarınız ve okuma tercihleri (yazı boyutu, transliterasyon)</li>
     <li>Zikirmatik kayıtlarınız</li>
@@ -62,17 +122,18 @@
   <h2>Bildirimler</h2>
   <p>Hatırlatmalar cihazınızda yerel bildirim olarak planlanır. Sunucu üzerinden push bildirimi gönderilmez.</p>
 
-  <h2>Çerezler</h2>
-  <p>Dua Compass uygulaması çerez kullanmaz ve üçüncü taraf reklam/analitik takip aracı içermez.
+  <h2>Çerezler ve takip</h2>
+  <p>Dua Compass uygulaması çerez kullanmaz; üçüncü taraf reklam veya analitik takip aracı içermez.
   Bu bilgilendirme sayfaları da çerez kullanmaz ve ziyaretçi takibi yapmaz. Sayfalar GitHub Pages üzerinde
   barındırılır; barındırma sağlayıcısı standart sunucu erişim kayıtları tutabilir.</p>
 
-  <h2>Verilerin Silinmesi</h2>
-  <p>Hesabınızı ve hesabınıza bağlı tüm sunucu verilerini uygulama içinden (Ayarlar → Hesap → Hesabı Sil)
-  veya <a href="hesap-silme.html">hesap silme sayfamızdan</a> kalıcı olarak silebilirsiniz. Hesabınızı silmeden
-  belirli verilerin silinmesini de <a href="hesap-silme.html#veri-silme">talep edebilirsiniz</a>.</p>
+  <h2>Verilerin silinmesi</h2>
+  <p>Hesabınızı ve hesabınıza bağlı tüm sunucu verilerini uygulama içinden
+  (Ayarlar → Hesap → Hesabı Sil) veya <a href="hesap-silme.html">hesap silme sayfasından</a> kalıcı olarak
+  silebilirsiniz. Hesabınızı silmeden belirli verilerin silinmesini de
+  <a href="hesap-silme.html#veri-silme">talep edebilirsiniz</a>.</p>
 
-  <h2>KVKK / GDPR Kapsamındaki Haklarınız</h2>
+  <h2>KVKK / GDPR kapsamındaki haklarınız</h2>
   <p>Kişisel verilerinize erişme, düzeltme, silme, işlemeye itiraz etme ve veri taşınabilirliği haklarına
   sahipsiniz. Talepleriniz için aşağıdaki iletişim adresine yazabilirsiniz; başvurular en geç 30 gün içinde
   yanıtlanır.</p>
@@ -82,6 +143,13 @@
 
   <h2>İletişim</h2>
   <p>Soru ve talepleriniz için: <a href="mailto:bbilal60@gmail.com">bbilal60@gmail.com</a></p>
+
+  <footer>
+    <span>Dua Compass</span>
+    <a href="index.html">Yasal Bilgiler</a>
+    <a href="hesap-silme.html">Hesap ve Veri Silme</a>
+    <a href="mailto:bbilal60@gmail.com">İletişim</a>
+  </footer>
 </div>
 </body>
 </html>
